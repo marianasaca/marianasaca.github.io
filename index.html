@@ -12,30 +12,24 @@
       background: #0f172a;
       color: #e5e7eb;
     }
-
     header {
       padding: 2.5rem 1.5rem;
       text-align: center;
     }
-
     h1 {
       margin: 0.5rem 0 0.5rem;
       font-size: 2.2rem;
     }
-
     .tagline {
       opacity: 0.85;
       font-size: 1.05rem;
     }
-
     .bio {
       max-width: 650px;
       margin: 1rem auto 0;
       opacity: 0.85;
       line-height: 1.5;
     }
-
-    /* Profile Image Styling */
     .profile-pic {
       width: 160px;
       height: 160px;
@@ -43,26 +37,22 @@
       object-fit: cover;
       object-position: center;
       border: 3px solid #1f2937;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
       margin-bottom: 1rem;
     }
-
     main {
       max-width: 960px;
       margin: 0 auto 3rem;
       padding: 0 1.5rem 2rem;
     }
-
     h2 {
       margin-top: 2.5rem;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
-
     .card {
       background: #020617;
       border-radius: 1rem;
@@ -70,32 +60,26 @@
       border: 1px solid #1f2937;
       transition: 0.25s ease;
     }
-
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
-
     .card h2 {
       margin-top: 0;
       font-size: 1.15rem;
     }
-
     .meta {
       font-size: 0.85rem;
       opacity: 0.8;
       margin-bottom: 0.5rem;
     }
-
     a {
       color: #38bdf8;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -108,10 +92,8 @@
 <body>
   <header>
     <img src="Headshot.JPG" alt="Profile photo of Mariana" class="profile-pic">
-
     <h1>Mariana Saca</h1>
     <p class="tagline">Data Analyst | Python | SQL | Machine Learning</p>
-
     <p class="bio">
       I’m a data analyst with experience in Python, SQL, and machine learning, focused on building clean, scalable data pipelines and turning complex datasets into meaningful insights. I enjoy working on applied analytics projects, especially forecasting, pricing, and operational optimization.
     </p>
@@ -121,22 +103,38 @@
     <h2>Projects</h2>
     <div class="grid">
 
+      <!-- DC Bike Sharing Project -->
+      <article class="card">
+        <h2>DC Bike Sharing Forecasting</h2>
+        <p class="meta">Python · ML · Time Series · Streamlit</p>
+        <p>
+          Machine learning analysis and forecasting of Washington D.C. bike-sharing demand. Includes EDA, feature engineering, model training, and an interactive Streamlit dashboard.
+        </p>
+        <p>
+          <a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank">View project →</a>
+        </p>
+      </article>
+
+      <!-- NYC Taxi -->
       <article class="card">
         <h2>MLOps Pipeline for NYC Taxi Trips</h2>
         <p class="meta">Python · MLOps · MLflow · Scikit-Learn</p>
         <p>
-          Designed and implemented an end-to-end MLOps workflow to predict NYC taxi trip durations using feature engineering, experiment tracking, and automated model evaluation.
+          Designed and implemented an end-to-end MLOps workflow to predict NYC taxi trip durations using feature
+          engineering, experiment tracking, and automated model evaluation.
         </p>
         <p>
           <a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank">View project →</a>
         </p>
       </article>
 
+      <!-- Airbnb -->
       <article class="card">
         <h2>NYC Airbnb Price Prediction Pipeline</h2>
         <p class="meta">Python · Machine Learning · Feature Engineering</p>
         <p>
-          Built a machine learning pipeline to predict Airbnb listing prices using data preprocessing, model training, and hyperparameter tuning with a focus on reproducibility and maintainability.
+          Built a machine learning pipeline to predict Airbnb listing prices using data preprocessing, model training,
+          and hyperparameter tuning with a focus on reproducibility and maintainability.
         </p>
         <p>
           <a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank">View project →</a>
@@ -148,9 +146,7 @@
 
   <footer>
     <p>
-      📫 Contact:
-      <a href="mailto:msaca16@gmail.com">msaca16@gmail.com</a>
-      ·
+      📫 Contact: <a href="mailto:msaca16@gmail.com">msaca16@gmail.com</a> ·
       <a href="https://www.linkedin.com/in/marianasaca/" target="_blank">LinkedIn</a>
     </p>
   </footer>
