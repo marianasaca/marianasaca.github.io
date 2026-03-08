@@ -64,14 +64,44 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
+    .card.featured {
+      border: 1px solid #0265AC;
+      grid-column: 1 / -1;
+    }
+    .card.featured .inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .card.featured img.preview {
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid #1f2937;
+    }
     .card h2 {
       margin-top: 0;
       font-size: 1.15rem;
+    }
+    .card.featured h2 {
+      font-size: 1.35rem;
     }
     .meta {
       font-size: 0.85rem;
       opacity: 0.8;
       margin-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #0265AC;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     a {
       color: #38bdf8;
@@ -80,11 +110,22 @@
     a:hover {
       text-decoration: underline;
     }
+    .links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
     footer {
       text-align: center;
       font-size: 0.9rem;
       opacity: 0.7;
       padding-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .card.featured .inner {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -95,31 +136,52 @@
     <h1>Mariana Saca</h1>
     <p class="tagline">Data Analyst | Python | SQL | Machine Learning</p>
     <p class="bio"><br>
-      Data Scientist with 4+ years of experience in global brand strategy. Currently pursuing a Master's in Business Analytics at IE University. I combine technical expertise in Python, SQL, and Machine Learning with deep domain knowledge in advertising to build predictive models that drive measurable business ROI.    </p>
+      Data Scientist with 4+ years of experience in global brand strategy. Currently pursuing a Master's in Business Analytics at IE University. I combine technical expertise in Python, SQL, and Machine Learning with deep domain knowledge in advertising to build predictive models that drive measurable business ROI.
+    </p>
   </header>
 
   <main>
     <h2>Projects</h2>
     <div class="grid">
 
+      <!-- FEATURED: Roche Capstone -->
+      <article class="card featured">
+        <span class="badge">Capstone Project</span>
+        <div class="inner">
+          <div>
+            <h2>Roche Lab Delay Risk Predictor</h2>
+            <p class="meta">Python · Scikit-Learn · Streamlit · Tableau · AWS</p>
+            <p>
+              AI-powered predictive system built for Roche Pharma's Lab Operations team. Forecasts experiment delays using 350K synthetic lab records across workflow, telemetry, and reagent data. A calibrated Gradient Boosting classifier achieves 86.3% AUC, identifying lab congestion and reagent batch quality as dominant delay drivers. Deployed as a Streamlit risk dashboard with what-if scenarios, plus a Tableau analytics dashboard and a proposed AWS Kappa architecture for enterprise deployment.
+            </p>
+            <div class="links">
+              <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank">View project &rarr;</a>
+            </div>
+          </div>
+          <div>
+            <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor Dashboard" class="preview">
+          </div>
+        </div>
+      </article>
+
+      <!-- Marketing Campaign -->
       <article class="card">
         <h2>Marketing Campaign Optimization Engine</h2>
         <p class="meta">Python · SQL · Machine Learning · Streamlit</p>
         <p><br>
           End-to-end analytics pipeline optimizing ad spend across 300k campaigns. Uncovered a 3x ROI discrepancy between channels using SQL window functions and Linear Regression. Features an interactive "What-If" dashboard for budget allocation.<br>
         </p>
-        
         <p><br>
-            <a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank">
-              <img src="https://img.shields.io/badge/Live_Demo-Visit_App-38bdf8?style=for-the-badge" alt="Live Demo" />
-            </a><br>
+          <a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank">
+            <img src="https://img.shields.io/badge/Live_Demo-Visit_App-38bdf8?style=for-the-badge" alt="Live Demo" />
+          </a><br>
         </p>
-
         <p><br>
-          <a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank">View project →</a><br>
+          <a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank">View project &rarr;</a><br>
         </p>
       </article>
 
+      <!-- DC Bike Sharing -->
       <article class="card">
         <h2>DC Bike Sharing Forecasting</h2>
         <p class="meta">Python · ML · Time Series · Streamlit</p>
@@ -127,10 +189,11 @@
           Machine learning analysis and forecasting of Washington D.C. bike-sharing demand. Includes EDA, feature engineering, model training, and an interactive Streamlit dashboard.<br>
         </p>
         <p><br>
-          <a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank">View project →</a><br>
+          <a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank">View project &rarr;</a><br>
         </p>
       </article>
 
+      <!-- MLOps NYC Taxi -->
       <article class="card">
         <h2>MLOps Pipeline for NYC Taxi Trips</h2>
         <p class="meta">Python · MLOps · MLflow · Scikit-Learn</p>
@@ -138,18 +201,17 @@
           Designed and implemented an end-to-end MLOps workflow to predict NYC taxi trip durations using feature
           engineering, experiment tracking, and automated model evaluation.<br>
         </p>
-        
         <p><br>
           <a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank">
             <img src="https://img.shields.io/badge/Live_Demo-Visit_App-38bdf8?style=for-the-badge" alt="Live Demo" />
           </a><br>
         </p>
-        
         <p><br>
-          <a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank">View project →</a><br>
+          <a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank">View project &rarr;</a><br>
         </p>
       </article>
 
+      <!-- NYC Airbnb -->
       <article class="card">
         <h2>NYC Airbnb Price Prediction Pipeline</h2>
         <p class="meta">Python · Machine Learning · Feature Engineering</p>
@@ -158,7 +220,7 @@
           and hyperparameter tuning with a focus on reproducibility and maintainability.<br>
         </p>
         <p><br>
-          <a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank">View project →</a><br>
+          <a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank">View project &rarr;</a><br>
         </p>
       </article>
 
