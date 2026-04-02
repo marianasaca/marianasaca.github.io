@@ -4,234 +4,564 @@
   <meta charset="UTF-8" />
   <title>Mariana Saca - Data Analytics Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-deep: #0a0e1a;
+      --bg-card: #0f1424;
+      --bg-card-hover: #141a2e;
+      --border: #1c2340;
+      --border-accent: #2e6fe0;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8b92a8;
+      --accent: #4a8eff;
+      --accent-warm: #f0a050;
+      --accent-glow: rgba(74, 142, 255, 0.08);
+      --tag-bg: rgba(74, 142, 255, 0.1);
+      --tag-border: rgba(74, 142, 255, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
+
+    /* ── noise overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-up {
+      animation: fadeUp 0.6s ease-out both;
+    }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+    .delay-4 { animation-delay: 0.32s; }
+    .delay-5 { animation-delay: 0.4s; }
+    .delay-6 { animation-delay: 0.48s; }
+    .delay-7 { animation-delay: 0.56s; }
+    .delay-8 { animation-delay: 0.64s; }
+    .delay-9 { animation-delay: 0.72s; }
+
+    /* ── layout ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── header ── */
     header {
-      padding: 2.5rem 1.5rem;
-      text-align: center;
+      padding: 4rem 0 2.5rem;
     }
-    h1 {
-      margin: 0.5rem 0 0.5rem;
-      font-size: 2.2rem;
-    }
-    .tagline {
-      opacity: 0.85;
-      font-size: 1.05rem;
-    }
-    .bio {
-      max-width: 650px;
-      margin: 1rem auto 0;
-      opacity: 0.85;
-      line-height: 1.5;
+    .header-inner {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
     }
     .profile-pic {
-      width: 160px;
-      height: 160px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center;
-      border: 3px solid #1f2937;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      margin-bottom: 1rem;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
     }
-    main {
-      max-width: 960px;
-      margin: 0 auto 3rem;
-      padding: 0 1.5rem 2rem;
+    .header-text h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
     }
-    h2 {
-      margin-top: 2.5rem;
+    .tagline {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-top: 0.35rem;
     }
-    .grid {
+    .tagline span {
+      color: var(--accent);
+    }
+    .bio {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 0.8rem;
+      max-width: 540px;
+      line-height: 1.65;
+    }
+    .award-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      background: rgba(240, 160, 80, 0.08);
+      border: 1px solid rgba(240, 160, 80, 0.2);
+      color: var(--accent-warm);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 2rem;
+      letter-spacing: 0.01em;
+    }
+    .header-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .header-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 0.4rem;
+      transition: 0.2s ease;
+    }
+    .header-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── section titles ── */
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── skills ── */
+    .skills-section {
+      padding: 2rem 0 0.5rem;
+    }
+    .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
     }
+    .skill-group h3 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .skill-group .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.3rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .tag.cert {
+      background: rgba(240, 160, 80, 0.08);
+      border-color: rgba(240, 160, 80, 0.2);
+      color: var(--accent-warm);
+    }
+
+    /* ── projects ── */
+    .projects-section {
+      padding: 2.5rem 0 1rem;
+    }
+    .project-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    /* featured card */
     .card {
-      background: #020617;
-      border-radius: 1rem;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid #1f2937;
-      transition: 0.25s ease;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      border-color: #2a3358;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     }
     .card.featured {
-      border: 1px solid #0265AC;
-      grid-column: 1 / -1;
+      border-color: var(--border-accent);
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(46, 111, 224, 0.04) 100%);
     }
-    .card.featured .inner {
+    .card.featured:hover {
+      border-color: var(--accent);
+    }
+
+    .featured-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       align-items: center;
     }
-    .card.featured img.preview {
-      width: 100%;
-      border-radius: 0.5rem;
-      border: 1px solid #1f2937;
-    }
-    .card h2 {
-      margin-top: 0;
-      font-size: 1.15rem;
-    }
-    .card.featured h2 {
-      font-size: 1.35rem;
-    }
-    .meta {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin-bottom: 0.5rem;
-    }
-    .badge {
+    .featured-badge {
       display: inline-block;
-      background: #0265AC;
-      color: white;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.25rem;
-      margin-bottom: 0.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.6rem;
     }
-    a {
-      color: #38bdf8;
+    .card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .card.featured .card-title {
+      font-size: 1.4rem;
+    }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .card-meta .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      opacity: 0.8;
+    }
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .card-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+    }
+    .card-links a {
+      color: var(--accent);
       text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
     }
-    a:hover {
+    .card-links a:hover {
       text-decoration: underline;
     }
-    .links {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 0.75rem;
+    .card-links a.demo-link {
+      color: var(--accent-warm);
     }
+    .preview-img {
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    /* standard 2-col grid for non-featured */
+    .card-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* ── footer ── */
     footer {
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      padding-bottom: 1.5rem;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
     }
-    @media (max-width: 600px) {
-      .card.featured .inner {
-        grid-template-columns: 1fr;
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-contact {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .footer-contact a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-contact a:hover {
+      color: var(--accent);
+    }
+    .footer-copy {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* ── responsive ── */
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
       }
+      .header-text h1 { font-size: 2.2rem; }
+      .bio { max-width: 100%; }
+      .header-links { justify-content: center; }
+      .featured-inner { grid-template-columns: 1fr; }
+      .card-pair { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- ════ HEADER ════ -->
   <header>
-    <img src="Headshot.JPG" alt="Profile photo of Mariana" class="profile-pic">
-    <h1>Mariana Saca</h1>
-    <p class="tagline">Data Analyst | Python | SQL | Machine Learning</p>
-    <p class="bio"><br>
-      Data Analyst with 4+ years of experience in global brand strategy. Currently pursuing a Master's in Business Analytics at IE University. I combine technical expertise in Python, SQL, and Machine Learning with deep domain knowledge in advertising to build predictive models that drive measurable business ROI.
-    </p>
+    <div class="container">
+      <div class="header-inner animate-up">
+        <img src="Headshot.JPG" alt="Mariana Saca" class="profile-pic">
+        <div class="header-text">
+          <h1>Mariana Saca</h1>
+          <p class="tagline">Brand Strategy <span>×</span> Data Science</p>
+          <p class="bio">
+            Data analyst with 4+ years translating consumer insights into business decisions for global brands. Master's in Business Analytics &amp; Data Science (IE University, Advanced AI). I build predictive models, NLP pipelines, and dashboards that connect what people feel to what companies should do next.
+          </p>
+          <div class="award-pill">
+            🏆 Excellence in Data Storytelling &amp; Business Impact — IE University Capstone 2025
+          </div>
+          <div class="header-links">
+            <a href="mailto:msaca16@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/marianasaca" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
-    <h2>Projects</h2>
-    <div class="grid">
+    <div class="container">
 
-      <!-- FEATURED: Roche Capstone -->
-      <article class="card featured">
-        <span class="badge">Capstone Project</span>
-        <div class="inner">
-          <div>
-            <h2>Roche Lab Delay Risk Predictor</h2>
-            <p class="meta">Python · Scikit-Learn · Streamlit · Tableau · AWS</p>
-            <p>
-              AI-powered predictive system built for Roche Pharma's Lab Operations team. Forecasts experiment delays using 350K synthetic lab records across workflow, telemetry, and reagent data. A calibrated Gradient Boosting classifier achieves 86.3% AUC, identifying lab congestion and reagent batch quality as dominant delay drivers. Deployed as a Streamlit risk dashboard with what-if scenarios, plus a Tableau analytics dashboard and a proposed AWS Kappa architecture for enterprise deployment.
-            </p>
-            <div class="links">
-              <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank">View project &rarr;</a>
+      <!-- ════ SKILLS ════ -->
+      <section class="skills-section animate-up delay-1">
+        <h2 class="section-title">Skills &amp; Credentials</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Languages &amp; Analysis</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">R</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
             </div>
           </div>
-          <div>
-            <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor Dashboard" class="preview">
+          <div class="skill-group">
+            <h3>ML &amp; NLP</h3>
+            <div class="tags">
+              <span class="tag">Scikit-Learn</span>
+              <span class="tag">NLTK</span>
+              <span class="tag">MLflow</span>
+              <span class="tag">LangGraph</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Visualization &amp; BI</h3>
+            <div class="tags">
+              <span class="tag">Tableau</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Seaborn</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Certifications</h3>
+            <div class="tags">
+              <span class="tag cert">AWS Cloud Practitioner</span>
+              <span class="tag cert">Google Analytics</span>
+            </div>
           </div>
         </div>
-      </article>
+      </section>
 
-      <!-- Marketing Campaign -->
-      <article class="card">
-        <h2>Marketing Campaign Optimization Engine</h2>
-        <p class="meta">Python · SQL · Machine Learning · Streamlit</p>
-        <p><br>
-          End-to-end analytics pipeline optimizing ad spend across 300k campaigns. Uncovered a 3x ROI discrepancy between channels using SQL window functions and Linear Regression. Features an interactive "What-If" dashboard for budget allocation.<br>
-        </p>
-        <p><br>
-          <a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank">
-            <img src="https://img.shields.io/badge/Live_Demo-Visit_App-38bdf8?style=for-the-badge" alt="Live Demo" />
-          </a><br>
-        </p>
-        <p><br>
-          <a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank">View project &rarr;</a><br>
-        </p>
-      </article>
+      <!-- ════ PROJECTS ════ -->
+      <section class="projects-section">
+        <h2 class="section-title animate-up delay-2">Projects</h2>
+        <div class="project-grid">
 
-      <!-- DC Bike Sharing -->
-      <article class="card">
-        <h2>DC Bike Sharing Forecasting</h2>
-        <p class="meta">Python · ML · Time Series · Streamlit</p>
-        <p><br>
-          Machine learning analysis and forecasting of Washington D.C. bike-sharing demand. Includes EDA, feature engineering, model training, and an interactive Streamlit dashboard.<br>
-        </p>
-        <p><br>
-          <a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank">View project &rarr;</a><br>
-        </p>
-      </article>
+          <!-- FEATURED: Roche Capstone -->
+          <article class="card featured animate-up delay-3">
+            <span class="featured-badge">Capstone Project</span>
+            <div class="featured-inner">
+              <div>
+                <h3 class="card-title">Roche Lab Delay Risk Predictor</h3>
+                <div class="card-meta">
+                  <span class="tag">Python</span>
+                  <span class="tag">Scikit-Learn</span>
+                  <span class="tag">Streamlit</span>
+                  <span class="tag">Tableau</span>
+                  <span class="tag">AWS</span>
+                </div>
+                <p class="card-desc">
+                  AI-powered predictive system built for Roche Pharma's Lab Operations. Forecasts experiment delays using 350K synthetic lab records across workflow, telemetry, and reagent data. A calibrated Gradient Boosting classifier achieves 86.3% AUC, identifying lab congestion and reagent batch quality as dominant delay drivers. Deployed as a Streamlit risk dashboard with what-if scenarios and a Tableau analytics layer.
+                </p>
+                <div class="card-links">
+                  <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank">View project →</a>
+                </div>
+              </div>
+              <div>
+                <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor Dashboard" class="preview-img">
+              </div>
+            </div>
+          </article>
 
-      <!-- MLOps NYC Taxi -->
-      <article class="card">
-        <h2>MLOps Pipeline for NYC Taxi Trips</h2>
-        <p class="meta">Python · MLOps · MLflow · Scikit-Learn</p>
-        <p><br>
-          Designed and implemented an end-to-end MLOps workflow to predict NYC taxi trip durations using feature
-          engineering, experiment tracking, and automated model evaluation.<br>
-        </p>
-        <p><br>
-          <a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank">
-            <img src="https://img.shields.io/badge/Live_Demo-Visit_App-38bdf8?style=for-the-badge" alt="Live Demo" />
-          </a><br>
-        </p>
-        <p><br>
-          <a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank">View project &rarr;</a><br>
-        </p>
-      </article>
+          <!-- Row: Sentiment Study + Marketing Campaign -->
+          <div class="card-pair">
+            <article class="card animate-up delay-4">
+              <h3 class="card-title">Sentiment-Driven Product Strategy</h3>
+              <div class="card-meta">
+                <span class="tag">Python</span>
+                <span class="tag">NLP</span>
+                <span class="tag">VADER</span>
+                <span class="tag">LDA</span>
+              </div>
+              <p class="card-desc">
+                NLP analysis of 23K+ e-commerce reviews to surface "hidden risk" products—items with high star ratings but negative underlying sentiment. Topic modeling uncovered fit inconsistencies as the primary driver, leading to a recommendation for "Runs Small" badges to reduce return rates.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/marianasaca/marketing-analytics-sentiment-study" target="_blank">View project →</a>
+              </div>
+            </article>
 
-      <!-- NYC Airbnb -->
-      <article class="card">
-        <h2>NYC Airbnb Price Prediction Pipeline</h2>
-        <p class="meta">Python · Machine Learning · Feature Engineering</p>
-        <p><br>
-          Built a machine learning pipeline to predict Airbnb listing prices using data preprocessing, model training,
-          and hyperparameter tuning with a focus on reproducibility and maintainability.<br>
-        </p>
-        <p><br>
-          <a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank">View project &rarr;</a><br>
-        </p>
-      </article>
+            <article class="card animate-up delay-5">
+              <h3 class="card-title">Marketing Campaign Optimization Engine</h3>
+              <div class="card-meta">
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">ML</span>
+                <span class="tag">Streamlit</span>
+              </div>
+              <p class="card-desc">
+                End-to-end analytics pipeline optimizing ad spend across 300K campaigns. Uncovered a 3× ROI discrepancy between channels using SQL window functions and Linear Regression. Features an interactive "What-If" dashboard for budget allocation.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank">View project →</a>
+                <a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank" class="demo-link">Live demo →</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Row: Bike Sharing + NYC Taxi -->
+          <div class="card-pair">
+            <article class="card animate-up delay-6">
+              <h3 class="card-title">DC Bike Sharing Forecasting</h3>
+              <div class="card-meta">
+                <span class="tag">Python</span>
+                <span class="tag">Time Series</span>
+                <span class="tag">ML</span>
+                <span class="tag">Streamlit</span>
+              </div>
+              <p class="card-desc">
+                Machine learning forecasting of Washington D.C. bike-sharing demand. Includes exploratory analysis, feature engineering, model training, and an interactive Streamlit dashboard.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank">View project →</a>
+              </div>
+            </article>
+
+            <article class="card animate-up delay-7">
+              <h3 class="card-title">MLOps Pipeline: NYC Taxi Trips</h3>
+              <div class="card-meta">
+                <span class="tag">Python</span>
+                <span class="tag">MLOps</span>
+                <span class="tag">MLflow</span>
+                <span class="tag">Scikit-Learn</span>
+              </div>
+              <p class="card-desc">
+                End-to-end MLOps workflow predicting NYC taxi trip durations using feature engineering, experiment tracking with MLflow, and automated model evaluation.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank">View project →</a>
+                <a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank" class="demo-link">Live API →</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Airbnb solo -->
+          <article class="card animate-up delay-8">
+            <h3 class="card-title">NYC Airbnb Price Prediction Pipeline</h3>
+            <div class="card-meta">
+              <span class="tag">Python</span>
+              <span class="tag">ML</span>
+              <span class="tag">Feature Engineering</span>
+            </div>
+            <p class="card-desc">
+              ML pipeline predicting Airbnb listing prices with data preprocessing, hyperparameter tuning, and a focus on reproducibility and maintainability.
+            </p>
+            <div class="card-links">
+              <a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank">View project →</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
 
     </div>
   </main>
 
+  <!-- ════ FOOTER ════ -->
   <footer>
-    <p><br>
-      📫 Contact: <a href="mailto:msaca16@gmail.com">msaca16@gmail.com</a> ·
-      <a href="https://www.linkedin.com/in/marianasaca/" target="_blank">LinkedIn</a><br>
-    </p>
+    <div class="container">
+      <div class="footer-inner animate-up delay-9">
+        <div class="footer-contact">
+          <a href="mailto:msaca16@gmail.com">msaca16@gmail.com</a>
+          <span style="color: var(--border);">·</span>
+          <a href="https://www.linkedin.com/in/marianasaca/" target="_blank">LinkedIn</a>
+          <span style="color: var(--border);">·</span>
+          <a href="https://github.com/marianasaca" target="_blank">GitHub</a>
+        </div>
+        <span class="footer-copy">© 2025 Mariana Saca</span>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
