@@ -14,13 +14,26 @@
     a { color: #16150F; text-decoration: none; }
     a:hover { color: oklch(0.54 0.15 42); }
     @keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-    .h1:hover, .h2:hover, .h3:hover { color: #16150F !important }
+    .h1:hover { color: #16150F !important }
+    .h2:hover { color: #16150F !important }
+    .h3:hover { color: #16150F !important }
     .h4:hover { background: oklch(0.54 0.15 42) !important; color: #F2EFE8 !important }
-    .h5:hover, .h6:hover { border-color: #16150F !important }
-    .h7:hover, .h8:hover, .h9:hover, .h10:hover, .h11:hover, .h12:hover,
-    .h13:hover, .h14:hover, .h15:hover, .h16:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h5:hover { border-color: #16150F !important }
+    .h6:hover { border-color: #16150F !important }
+    .h7:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h8:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h9:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h10:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h11:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h12:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h13:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h14:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h15:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h16:hover { border-color: oklch(0.54 0.15 42) !important }
     .h17:hover { color: oklch(0.68 0.14 45) !important }
-    .h18:hover, .h19:hover, .h20:hover { color: #F2EFE8 !important }
+    .h18:hover { color: #F2EFE8 !important }
+    .h19:hover { color: #F2EFE8 !important }
+    .h20:hover { color: #F2EFE8 !important }
   </style>
 </head>
 <body>
@@ -30,9 +43,9 @@
       <div style="max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px">
         <a href="#top" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase">Mariana&nbsp;Saca</a>
         <nav style="display: flex; gap: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #6E6959">
-          <a href="#work" style="color: inherit" class="h1">Work</a>
-          <a href="#skills" style="color: inherit" class="h2">Skills</a>
-          <a href="mailto:msaca16@gmail.com" style="color: inherit" class="h3">Contact</a>
+          <a href="#work" style="color: inherit" data-h="h1" class="h1">Work</a>
+          <a href="#skills" style="color: inherit" data-h="h2" class="h2">Skills</a>
+          <a href="mailto:msaca16@gmail.com" style="color: inherit" data-h="h3" class="h3">Contact</a>
         </nav>
       </div>
     </header>
@@ -40,7 +53,7 @@
     <section id="top" style="max-width: 1120px; margin: 0 auto; padding: 96px 32px 72px; animation: riseIn 0.7s cubic-bezier(0.22,1,0.36,1) both">
       <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
         <div style="flex: 1 1 480px">
-          <p style="margin: 0 0 26px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(0.54 0.15 42)">Data analyst &nbsp;/&nbsp; Portfolio 2025</p>
+          <p style="margin: 0 0 26px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(0.54 0.15 42)">Data analyst &nbsp;/&nbsp; Portfolio</p>
           <h1 style="margin: 0; font-size: clamp(46px, 7.2vw, 92px); line-height: 0.94; letter-spacing: -0.045em; font-weight: 500">Brand Strategy
             <span style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300; letter-spacing: -0.02em; color: oklch(0.54 0.15 42)">×</span>
             Data Science</h1>
@@ -50,13 +63,13 @@
             <span>Excellence in Data Storytelling &amp; Business Impact — IE University Capstone 2025</span>
           </div>
           <div style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px">
-            <a href="mailto:msaca16@gmail.com" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; background: #16150F; color: #F2EFE8; border-radius: 2px" class="h4">Email →</a>
-            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; border: 1px solid #C9C2B0; border-radius: 2px" class="h5">LinkedIn</a>
-            <a href="https://github.com/marianasaca" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; border: 1px solid #C9C2B0; border-radius: 2px" class="h6">GitHub</a>
+            <a href="mailto:msaca16@gmail.com" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; background: #16150F; color: #F2EFE8; border-radius: 2px" data-h="h4" class="h4">Email →</a>
+            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; border: 1px solid #C9C2B0; border-radius: 2px" data-h="h5" class="h5">LinkedIn</a>
+            <a href="https://github.com/marianasaca" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; border: 1px solid #C9C2B0; border-radius: 2px" data-h="h6" class="h6">GitHub</a>
           </div>
         </div>
 
-        <div style="flex: 1 1 220px; max-width: 300px; display: flex; flex-direction: column; gap: 14px">
+        <div style="flex: 0 1 170px; max-width: 170px; display: flex; flex-direction: column; gap: 14px">
           <img src="Headshot.JPG" alt="Mariana Saca" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border: 1px solid #DED8C9; display: block">
         </div>
       </div>
@@ -82,10 +95,10 @@
             <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">AWS</span>
           </div>
           <div style="margin-top: 22px; display: flex; gap: 20px">
-            <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h7">View project →</a>
+            <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h7" class="h7">View project →</a>
           </div>
         </div>
-        <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor dashboard" style="flex: 1 1 280px; align-self: flex-start; width: 100%; border: 1px solid #DED8C9; display: block">
+        <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor dashboard" style="flex: 0 1 220px; max-width: 220px; align-self: flex-start; border: 1px solid #DED8C9; display: block">
       </article>
 
       <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
@@ -96,7 +109,7 @@
         </div>
         <div style="flex: 1 1 260px">
           <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Gemini</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">NewsAPI</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Google Trends</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">GitHub Actions</span></div>
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/cultural-signal-tracker" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h8">View project →</a><a href="https://marianasaca.github.io/cultural-signal-tracker/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" class="h9">Live archive →</a></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/cultural-signal-tracker" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h8" class="h8">View project →</a><a href="https://marianasaca.github.io/cultural-signal-tracker/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" data-h="h9" class="h9">Live archive →</a></div>
         </div>
       </article>
 
@@ -108,7 +121,7 @@
         </div>
         <div style="flex: 1 1 260px">
           <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">NLP</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">VADER</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">LDA</span></div>
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/marketing-analytics-sentiment-study" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h10">View project →</a></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/marketing-analytics-sentiment-study" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h10" class="h10">View project →</a></div>
         </div>
       </article>
 
@@ -120,7 +133,7 @@
         </div>
         <div style="flex: 1 1 260px">
           <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">SQL</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">ML</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Streamlit</span></div>
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h11">View project →</a><a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" class="h12">Live demo →</a></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h11" class="h11">View project →</a><a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" data-h="h12" class="h12">Live demo →</a></div>
         </div>
       </article>
 
@@ -132,7 +145,7 @@
         </div>
         <div style="flex: 1 1 260px">
           <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">MLOps</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">MLflow</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Scikit-Learn</span></div>
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h13">View project →</a><a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" class="h14">Live API →</a></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h13" class="h13">View project →</a><a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" data-h="h14" class="h14">Live API →</a></div>
         </div>
       </article>
 
@@ -144,7 +157,7 @@
         </div>
         <div style="flex: 1 1 260px">
           <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Time Series</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">ML</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Streamlit</span></div>
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h15">View project →</a></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h15" class="h15">View project →</a></div>
         </div>
       </article>
 
@@ -156,7 +169,7 @@
         </div>
         <div style="flex: 1 1 260px">
           <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">ML</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Feature Engineering</span></div>
-          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h16">View project →</a></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" data-h="h16" class="h16">View project →</a></div>
         </div>
       </article>
     </section>
@@ -196,12 +209,12 @@
     <footer style="background: #16150F; color: #F2EFE8; margin-top: 64px">
       <div style="max-width: 1120px; margin: 0 auto; padding: 80px 32px 40px">
         <p style="margin: 0 0 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8471">Get in touch</p>
-        <a href="mailto:msaca16@gmail.com" style="display: inline-block; color: #F2EFE8; font-size: clamp(30px, 5.4vw, 62px); letter-spacing: -0.04em; line-height: 1.05; font-weight: 500" class="h17">msaca16@gmail.com</a>
+        <a href="mailto:msaca16@gmail.com" style="display: inline-block; color: #F2EFE8; font-size: clamp(30px, 5.4vw, 62px); letter-spacing: -0.04em; line-height: 1.05; font-weight: 500" data-h="h17" class="h17">msaca16@gmail.com</a>
         <div style="margin-top: 56px; padding-top: 22px; border-top: 1px solid #33301F; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.08em; color: #8A8471">
           <div style="display: flex; gap: 22px">
-            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank" style="color: #C9C2B0" class="h18">LinkedIn</a>
-            <a href="https://github.com/marianasaca" target="_blank" style="color: #C9C2B0" class="h19">GitHub</a>
-            <a href="mailto:msaca16@gmail.com" style="color: #C9C2B0" class="h20">Email</a>
+            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank" style="color: #C9C2B0" data-h="h18" class="h18">LinkedIn</a>
+            <a href="https://github.com/marianasaca" target="_blank" style="color: #C9C2B0" data-h="h19" class="h19">GitHub</a>
+            <a href="mailto:msaca16@gmail.com" style="color: #C9C2B0" data-h="h20" class="h20">Email</a>
           </div>
           <span>© 2025 Mariana Saca</span>
         </div>
