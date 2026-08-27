@@ -2,569 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mariana Saca - Data Analytics Portfolio</title>
+  <title>Mariana Saca — Data Analytics Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-deep: #0a0e1a;
-      --bg-card: #0f1424;
-      --bg-card-hover: #141a2e;
-      --border: #1c2340;
-      --border-accent: #2e6fe0;
-      --text-primary: #e8eaf0;
-      --text-secondary: #8b92a8;
-      --accent: #4a8eff;
-      --accent-warm: #f0a050;
-      --accent-glow: rgba(74, 142, 255, 0.08);
-      --tag-bg: rgba(74, 142, 255, 0.1);
-      --tag-border: rgba(74, 142, 255, 0.2);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg-deep);
-      color: var(--text-primary);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── noise overlay ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 999;
-    }
-
-    /* ── animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .animate-up {
-      animation: fadeUp 0.6s ease-out both;
-    }
-    .delay-1 { animation-delay: 0.08s; }
-    .delay-2 { animation-delay: 0.16s; }
-    .delay-3 { animation-delay: 0.24s; }
-    .delay-4 { animation-delay: 0.32s; }
-    .delay-5 { animation-delay: 0.4s; }
-    .delay-6 { animation-delay: 0.48s; }
-    .delay-7 { animation-delay: 0.56s; }
-    .delay-8 { animation-delay: 0.64s; }
-    .delay-9 { animation-delay: 0.72s; }
-
-    /* ── layout ── */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── header ── */
-    header {
-      padding: 4rem 0 2.5rem;
-    }
-    .header-inner {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    .profile-pic {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      border: 2px solid var(--border);
-      flex-shrink: 0;
-    }
-    .header-text h1 {
-      font-family: 'Instrument Serif', serif;
-      font-size: 2.8rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-    .tagline {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      margin-top: 0.35rem;
-    }
-    .tagline span {
-      color: var(--accent);
-    }
-    .bio {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-top: 0.8rem;
-      max-width: 540px;
-      line-height: 1.65;
-    }
-    .award-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 0.8rem;
-      background: rgba(240, 160, 80, 0.08);
-      border: 1px solid rgba(240, 160, 80, 0.2);
-      color: var(--accent-warm);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 0.35rem 0.75rem;
-      border-radius: 2rem;
-      letter-spacing: 0.01em;
-    }
-    .header-links {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-    .header-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.85rem;
-      padding: 0.35rem 0.7rem;
-      border: 1px solid var(--border);
-      border-radius: 0.4rem;
-      transition: 0.2s ease;
-    }
-    .header-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── section titles ── */
-    .section-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ── skills ── */
-    .skills-section {
-      padding: 2rem 0 0.5rem;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .skill-group h3 {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-    .skill-group .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-    .tag {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 0.3rem;
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      color: var(--accent);
-      white-space: nowrap;
-    }
-    .tag.cert {
-      background: rgba(240, 160, 80, 0.08);
-      border-color: rgba(240, 160, 80, 0.2);
-      color: var(--accent-warm);
-    }
-
-    /* ── projects ── */
-    .projects-section {
-      padding: 2.5rem 0 1rem;
-    }
-    .project-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    /* featured card */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .card:hover {
-      border-color: #2a3358;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-    }
-    .card.featured {
-      border-color: var(--border-accent);
-      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(46, 111, 224, 0.04) 100%);
-    }
-    .card.featured:hover {
-      border-color: var(--accent);
-    }
-
-    .featured-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .featured-badge {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      padding: 0.2rem 0.55rem;
-      border-radius: 0.25rem;
-      margin-bottom: 0.6rem;
-    }
-    .card-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin-bottom: 0.3rem;
-    }
-    .card.featured .card-title {
-      font-size: 1.4rem;
-    }
-    .card-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-bottom: 0.6rem;
-    }
-    .card-meta .tag {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.45rem;
-      opacity: 0.8;
-    }
-    .card-desc {
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-      line-height: 1.6;
-    }
-    .card-links {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-top: 0.85rem;
-    }
-    .card-links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
-    .card-links a:hover {
-      text-decoration: underline;
-    }
-    .card-links a.demo-link {
-      color: var(--accent-warm);
-    }
-    .preview-img {
-      width: 100%;
-      border-radius: 0.5rem;
-      border: 1px solid var(--border);
-    }
-
-    /* standard 2-col grid for non-featured */
-    .card-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    /* ── footer ── */
-    footer {
-      padding: 3rem 0 2rem;
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-contact {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .footer-contact a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: color 0.2s;
-    }
-    .footer-contact a:hover {
-      color: var(--accent);
-    }
-    .footer-copy {
-      color: var(--text-secondary);
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
-
-    /* ── responsive ── */
-    @media (max-width: 700px) {
-      .header-inner {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-      }
-      .header-text h1 { font-size: 2.2rem; }
-      .bio { max-width: 100%; }
-      .header-links { justify-content: center; }
-      .featured-inner { grid-template-columns: 1fr; }
-      .card-pair { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F2EFE8; color: #16150F; -webkit-font-smoothing: antialiased; }
+    a { color: #16150F; text-decoration: none; }
+    a:hover { color: oklch(0.54 0.15 42); }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .h1:hover, .h2:hover, .h3:hover { color: #16150F !important }
+    .h4:hover { background: oklch(0.54 0.15 42) !important; color: #F2EFE8 !important }
+    .h5:hover, .h6:hover { border-color: #16150F !important }
+    .h7:hover, .h8:hover, .h9:hover, .h10:hover, .h11:hover, .h12:hover,
+    .h13:hover, .h14:hover, .h15:hover, .h16:hover { border-color: oklch(0.54 0.15 42) !important }
+    .h17:hover { color: oklch(0.68 0.14 45) !important }
+    .h18:hover, .h19:hover, .h20:hover { color: #F2EFE8 !important }
   </style>
 </head>
-
 <body>
+  <div style="font-family: 'Space Grotesk', sans-serif; background: #F2EFE8; color: #16150F; min-height: 100vh; overflow-x: hidden">
 
-  <!-- ════ HEADER ════ -->
-  <header>
-    <div class="container">
-      <div class="header-inner animate-up">
-        <img src="Headshot.JPG" alt="Mariana Saca" class="profile-pic">
-        <div class="header-text">
-          <h1>Mariana Saca</h1>
-          <p class="tagline">Brand Strategy <span>×</span> Data Science</p>
-          <p class="bio">
-            Data analyst with 4+ years translating consumer insights into business decisions for global brands. Master's in Business Analytics &amp; Data Science (IE University, Advanced AI). I build predictive models, NLP pipelines, and dashboards that connect what people feel to what companies should do next.
-          </p>
-          <div class="award-pill">
-            🏆 Excellence in Data Storytelling &amp; Business Impact — IE University Capstone 2025
+    <header style="position: sticky; top: 0; z-index: 50; background: rgba(242,239,232,0.86); backdrop-filter: blur(12px); border-bottom: 1px solid #DED8C9">
+      <div style="max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px">
+        <a href="#top" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase">Mariana&nbsp;Saca</a>
+        <nav style="display: flex; gap: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #6E6959">
+          <a href="#work" style="color: inherit" class="h1">Work</a>
+          <a href="#skills" style="color: inherit" class="h2">Skills</a>
+          <a href="mailto:msaca16@gmail.com" style="color: inherit" class="h3">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="top" style="max-width: 1120px; margin: 0 auto; padding: 96px 32px 72px; animation: riseIn 0.7s cubic-bezier(0.22,1,0.36,1) both">
+      <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+        <div style="flex: 1 1 480px">
+          <p style="margin: 0 0 26px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(0.54 0.15 42)">Data analyst &nbsp;/&nbsp; Portfolio 2025</p>
+          <h1 style="margin: 0; font-size: clamp(46px, 7.2vw, 92px); line-height: 0.94; letter-spacing: -0.045em; font-weight: 500">Brand Strategy
+            <span style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 300; letter-spacing: -0.02em; color: oklch(0.54 0.15 42)">×</span>
+            Data Science</h1>
+          <p style="margin: 34px 0 0; max-width: 620px; font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.5; color: #33301F">Data analyst with 4+ years translating consumer insights into business decisions for global brands. Master's in Business Analytics &amp; Data Science (IE University, Advanced AI). I build predictive models, NLP pipelines, and dashboards that connect what people feel to what companies should do next.</p>
+          <div style="margin-top: 30px; display: inline-flex; align-items: center; gap: 12px; border: 1px solid oklch(0.54 0.15 42 / 0.35); background: oklch(0.54 0.15 42 / 0.07); padding: 9px 16px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.04em; color: oklch(0.48 0.14 42)">
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: oklch(0.54 0.15 42); flex-shrink: 0"></span>
+            <span>Excellence in Data Storytelling &amp; Business Impact — IE University Capstone 2025</span>
           </div>
-          <div class="header-links">
-            <a href="mailto:msaca16@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/marianasaca" target="_blank">GitHub</a>
+          <div style="margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px">
+            <a href="mailto:msaca16@gmail.com" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; background: #16150F; color: #F2EFE8; border-radius: 2px" class="h4">Email →</a>
+            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; border: 1px solid #C9C2B0; border-radius: 2px" class="h5">LinkedIn</a>
+            <a href="https://github.com/marianasaca" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 11px 20px; border: 1px solid #C9C2B0; border-radius: 2px" class="h6">GitHub</a>
           </div>
+        </div>
+
+        <div style="flex: 1 1 220px; max-width: 300px; display: flex; flex-direction: column; gap: 14px">
+          <img src="Headshot.JPG" alt="Mariana Saca" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border: 1px solid #DED8C9; display: block">
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <main>
-    <div class="container">
-
-      <!-- ════ SKILLS ════ -->
-      <section class="skills-section animate-up delay-1">
-        <h2 class="section-title">Skills &amp; Credentials</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">SQL</span>
-              <span class="tag">R</span>
-              <span class="tag">SAS</span>
-              <span class="tag">C++</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Libraries &amp; ML</h3>
-            <div class="tags">
-              <span class="tag">Pandas</span>
-              <span class="tag">NumPy</span>
-              <span class="tag">Scikit-Learn</span>
-              <span class="tag">NLTK</span>
-              <span class="tag">MLflow</span>
-              <span class="tag">LangGraph</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Visualization &amp; BI</h3>
-            <div class="tags">
-              <span class="tag">Tableau</span>
-              <span class="tag">Power BI</span>
-              <span class="tag">Streamlit</span>
-              <span class="tag">Matplotlib</span>
-              <span class="tag">Seaborn</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Certifications</h3>
-            <div class="tags">
-              <span class="tag cert">AWS Cloud Practitioner</span>
-              <span class="tag cert">Google Analytics</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ════ PROJECTS ════ -->
-      <section class="projects-section">
-        <h2 class="section-title animate-up delay-2">Projects</h2>
-        <div class="project-grid">
-
-          <!-- FEATURED: Roche Capstone -->
-          <article class="card featured animate-up delay-3">
-            <span class="featured-badge">Capstone Project</span>
-            <div class="featured-inner">
-              <div>
-                <h3 class="card-title">Roche Lab Delay Risk Predictor</h3>
-                <div class="card-meta">
-                  <span class="tag">Python</span>
-                  <span class="tag">Scikit-Learn</span>
-                  <span class="tag">Streamlit</span>
-                  <span class="tag">Tableau</span>
-                  <span class="tag">AWS</span>
-                </div>
-                <p class="card-desc">
-                  AI-powered predictive system built for Roche Pharma's Lab Operations. Forecasts experiment delays using 350K synthetic lab records across workflow, telemetry, and reagent data. A calibrated Gradient Boosting classifier achieves 86.3% AUC, identifying lab congestion and reagent batch quality as dominant delay drivers. Deployed as a Streamlit risk dashboard with what-if scenarios and a Tableau analytics layer.
-                </p>
-                <div class="card-links">
-                  <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank">View project →</a>
-                </div>
-              </div>
-              <div>
-                <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor Dashboard" class="preview-img">
-              </div>
-            </div>
-          </article>
-
-          <!-- Row: Sentiment Study + Marketing Campaign -->
-          <div class="card-pair">
-            <article class="card animate-up delay-4">
-              <h3 class="card-title">Sentiment-Driven Product Strategy</h3>
-              <div class="card-meta">
-                <span class="tag">Python</span>
-                <span class="tag">NLP</span>
-                <span class="tag">VADER</span>
-                <span class="tag">LDA</span>
-              </div>
-              <p class="card-desc">
-                NLP analysis of 23K+ e-commerce reviews to surface "hidden risk" products—items with high star ratings but negative underlying sentiment. Topic modeling uncovered fit inconsistencies as the primary driver, leading to a recommendation for "Runs Small" badges to reduce return rates.
-              </p>
-              <div class="card-links">
-                <a href="https://github.com/marianasaca/marketing-analytics-sentiment-study" target="_blank">View project →</a>
-              </div>
-            </article>
-
-            <article class="card animate-up delay-5">
-              <h3 class="card-title">Marketing Campaign Optimization Engine</h3>
-              <div class="card-meta">
-                <span class="tag">Python</span>
-                <span class="tag">SQL</span>
-                <span class="tag">ML</span>
-                <span class="tag">Streamlit</span>
-              </div>
-              <p class="card-desc">
-                End-to-end analytics pipeline optimizing ad spend across 300K campaigns. Uncovered a 3× ROI discrepancy between channels using SQL window functions and Linear Regression. Features an interactive "What-If" dashboard for budget allocation.
-              </p>
-              <div class="card-links">
-                <a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank">View project →</a>
-                <a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank" class="demo-link">Live demo →</a>
-              </div>
-            </article>
-          </div>
-
-          <!-- Row: Bike Sharing + NYC Taxi -->
-          <div class="card-pair">
-            <article class="card animate-up delay-6">
-              <h3 class="card-title">DC Bike Sharing Forecasting</h3>
-              <div class="card-meta">
-                <span class="tag">Python</span>
-                <span class="tag">Time Series</span>
-                <span class="tag">ML</span>
-                <span class="tag">Streamlit</span>
-              </div>
-              <p class="card-desc">
-                Machine learning forecasting of Washington D.C. bike-sharing demand. Includes exploratory analysis, feature engineering, model training, and an interactive Streamlit dashboard.
-              </p>
-              <div class="card-links">
-                <a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank">View project →</a>
-              </div>
-            </article>
-
-            <article class="card animate-up delay-7">
-              <h3 class="card-title">MLOps Pipeline: NYC Taxi Trips</h3>
-              <div class="card-meta">
-                <span class="tag">Python</span>
-                <span class="tag">MLOps</span>
-                <span class="tag">MLflow</span>
-                <span class="tag">Scikit-Learn</span>
-              </div>
-              <p class="card-desc">
-                End-to-end MLOps workflow predicting NYC taxi trip durations using feature engineering, experiment tracking with MLflow, and automated model evaluation.
-              </p>
-              <div class="card-links">
-                <a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank">View project →</a>
-                <a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank" class="demo-link">Live API →</a>
-              </div>
-            </article>
-          </div>
-
-          <!-- Airbnb solo -->
-          <article class="card animate-up delay-8">
-            <h3 class="card-title">NYC Airbnb Price Prediction Pipeline</h3>
-            <div class="card-meta">
-              <span class="tag">Python</span>
-              <span class="tag">ML</span>
-              <span class="tag">Feature Engineering</span>
-            </div>
-            <p class="card-desc">
-              ML pipeline predicting Airbnb listing prices with data preprocessing, hyperparameter tuning, and a focus on reproducibility and maintainability.
-            </p>
-            <div class="card-links">
-              <a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank">View project →</a>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- ════ FOOTER ════ -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner animate-up delay-9">
-        <div class="footer-contact">
-          <a href="mailto:msaca16@gmail.com">msaca16@gmail.com</a>
-          <span style="color: var(--border);">·</span>
-          <a href="https://www.linkedin.com/in/marianasaca/" target="_blank">LinkedIn</a>
-          <span style="color: var(--border);">·</span>
-          <a href="https://github.com/marianasaca" target="_blank">GitHub</a>
-        </div>
-        <span class="footer-copy">© 2025 Mariana Saca</span>
+    <section id="work" style="max-width: 1120px; margin: 0 auto; padding: 0 32px 40px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid #16150F; padding-top: 14px; margin-bottom: 8px">
+        <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500">Selected Work</h2>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471">07</span>
       </div>
-    </div>
-  </footer>
 
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 40px 0; border-bottom: 1px solid #DED8C9">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: oklch(0.54 0.15 42); padding-top: 8px; flex: 0 0 40px">01</span>
+        <div style="flex: 1 1 420px">
+          <p style="margin: 0 0 10px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: oklch(0.54 0.15 42)">Capstone Project</p>
+          <h3 style="margin: 0; font-size: 34px; line-height: 1.08; letter-spacing: -0.03em; font-weight: 500">Roche Lab Delay Risk Predictor</h3>
+          <p style="margin: 16px 0 0; font-family: 'Newsreader', serif; font-size: 17.5px; line-height: 1.55; color: #444030">AI-powered predictive system built for Roche Pharma's Lab Operations. Forecasts experiment delays using 350K synthetic lab records across workflow, telemetry, and reagent data. A calibrated Gradient Boosting classifier achieves 86.3% AUC, identifying lab congestion and reagent batch quality as dominant delay drivers. Deployed as a Streamlit risk dashboard with what-if scenarios and a Tableau analytics layer.</p>
+          <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Scikit-Learn</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Streamlit</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Tableau</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">AWS</span>
+          </div>
+          <div style="margin-top: 22px; display: flex; gap: 20px">
+            <a href="https://github.com/marianasaca/roche_capstone_group2" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h7">View project →</a>
+          </div>
+        </div>
+        <img src="roche-dashboard.png" alt="Roche Lab Delay Risk Predictor dashboard" style="flex: 1 1 280px; align-self: flex-start; width: 100%; border: 1px solid #DED8C9; display: block">
+      </article>
+
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471; padding-top: 6px; flex: 0 0 40px">02</span>
+        <div style="flex: 1 1 440px">
+          <h3 style="margin: 0; font-size: 26px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 500">Cultural Signal Tracker</h3>
+          <p style="margin: 13px 0 0; font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.55; color: #444030">A weekly cultural intelligence pipeline that monitors US Hispanic consumer culture. It pulls search-interest and news signals, has Google Gemini synthesize them into a strategist-ready brief, and publishes a browsable archive to GitHub Pages — automatically, every Monday.</p>
+        </div>
+        <div style="flex: 1 1 260px">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Gemini</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">NewsAPI</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Google Trends</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">GitHub Actions</span></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/cultural-signal-tracker" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h8">View project →</a><a href="https://marianasaca.github.io/cultural-signal-tracker/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" class="h9">Live archive →</a></div>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471; padding-top: 6px; flex: 0 0 40px">03</span>
+        <div style="flex: 1 1 440px">
+          <h3 style="margin: 0; font-size: 26px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 500">Sentiment-Driven Product Strategy</h3>
+          <p style="margin: 13px 0 0; font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.55; color: #444030">NLP analysis of 23K+ e-commerce reviews to surface "hidden risk" products—items with high star ratings but negative underlying sentiment. Topic modeling uncovered fit inconsistencies as the primary driver, leading to a recommendation for "Runs Small" badges to reduce return rates.</p>
+        </div>
+        <div style="flex: 1 1 260px">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">NLP</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">VADER</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">LDA</span></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/marketing-analytics-sentiment-study" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h10">View project →</a></div>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471; padding-top: 6px; flex: 0 0 40px">04</span>
+        <div style="flex: 1 1 440px">
+          <h3 style="margin: 0; font-size: 26px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 500">Marketing Campaign Optimization Engine</h3>
+          <p style="margin: 13px 0 0; font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.55; color: #444030">End-to-end analytics pipeline optimizing ad spend across 300K campaigns. Uncovered a 3× ROI discrepancy between channels using SQL window functions and Linear Regression. Features an interactive "What-If" dashboard for budget allocation.</p>
+        </div>
+        <div style="flex: 1 1 260px">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">SQL</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">ML</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Streamlit</span></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/marketing-roi-optimizer" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h11">View project →</a><a href="https://marketing-roi-optimizer-ntgfpkxadccjyegnqfsspu.streamlit.app/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" class="h12">Live demo →</a></div>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471; padding-top: 6px; flex: 0 0 40px">05</span>
+        <div style="flex: 1 1 440px">
+          <h3 style="margin: 0; font-size: 26px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 500">MLOps Pipeline: NYC Taxi Trips</h3>
+          <p style="margin: 13px 0 0; font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.55; color: #444030">End-to-end MLOps workflow predicting NYC taxi trip durations using feature engineering, experiment tracking with MLflow, and automated model evaluation.</p>
+        </div>
+        <div style="flex: 1 1 260px">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">MLOps</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">MLflow</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Scikit-Learn</span></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/ie-mlops-nyc-taxis" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h13">View project →</a><a href="https://ie-mlops-nyc-taxis-98u4.onrender.com/docs" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: oklch(0.54 0.15 42); border-bottom: 1px solid oklch(0.54 0.15 42 / 0.4); padding-bottom: 3px" class="h14">Live API →</a></div>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471; padding-top: 6px; flex: 0 0 40px">06</span>
+        <div style="flex: 1 1 440px">
+          <h3 style="margin: 0; font-size: 26px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 500">DC Bike Sharing Forecasting</h3>
+          <p style="margin: 13px 0 0; font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.55; color: #444030">Machine learning forecasting of Washington D.C. bike-sharing demand. Includes exploratory analysis, feature engineering, model training, and an interactive Streamlit dashboard.</p>
+        </div>
+        <div style="flex: 1 1 260px">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Time Series</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">ML</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Streamlit</span></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/dc-bike-sharing-forecasting" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h15">View project →</a></div>
+        </div>
+      </article>
+
+      <article style="display: flex; flex-wrap: wrap; gap: 32px; padding: 36px 0; border-bottom: 1px solid #DED8C9; align-items: flex-start">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8471; padding-top: 6px; flex: 0 0 40px">07</span>
+        <div style="flex: 1 1 440px">
+          <h3 style="margin: 0; font-size: 26px; line-height: 1.12; letter-spacing: -0.025em; font-weight: 500">NYC Airbnb Price Prediction Pipeline</h3>
+          <p style="margin: 13px 0 0; font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.55; color: #444030">ML pipeline predicting Airbnb listing prices with data preprocessing, hyperparameter tuning, and a focus on reproducibility and maintainability.</p>
+        </div>
+        <div style="flex: 1 1 260px">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Python</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">ML</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.06em; padding: 4px 9px; border: 1px solid #D5CEBB; color: #5C5847">Feature Engineering</span></div>
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px"><a href="https://github.com/marianasaca/mlops-nyc-airbnb" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; border-bottom: 1px solid #C9C2B0; padding-bottom: 3px" class="h16">View project →</a></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills" style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 40px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid #16150F; padding-top: 14px; margin-bottom: 36px">
+        <h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500">Skills &amp; Credentials</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px 32px">
+        <div>
+          <h3 style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8471; font-weight: 400; border-bottom: 1px solid #DED8C9; padding-bottom: 10px">Languages</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15.5px; color: #33301F">
+            <li>Python</li><li>SQL</li><li>R</li><li>SAS</li><li>C++</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8471; font-weight: 400; border-bottom: 1px solid #DED8C9; padding-bottom: 10px">Libraries &amp; ML</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15.5px; color: #33301F">
+            <li>Pandas</li><li>NumPy</li><li>Scikit-Learn</li><li>NLTK</li><li>MLflow</li><li>LangGraph</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8471; font-weight: 400; border-bottom: 1px solid #DED8C9; padding-bottom: 10px">Visualization &amp; BI</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15.5px; color: #33301F">
+            <li>Tableau</li><li>Power BI</li><li>Streamlit</li><li>Matplotlib</li><li>Seaborn</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8471; font-weight: 400; border-bottom: 1px solid #DED8C9; padding-bottom: 10px">Certifications</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15.5px; color: oklch(0.48 0.14 42)">
+            <li>AWS Cloud Practitioner</li><li>Google Analytics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer style="background: #16150F; color: #F2EFE8; margin-top: 64px">
+      <div style="max-width: 1120px; margin: 0 auto; padding: 80px 32px 40px">
+        <p style="margin: 0 0 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8471">Get in touch</p>
+        <a href="mailto:msaca16@gmail.com" style="display: inline-block; color: #F2EFE8; font-size: clamp(30px, 5.4vw, 62px); letter-spacing: -0.04em; line-height: 1.05; font-weight: 500" class="h17">msaca16@gmail.com</a>
+        <div style="margin-top: 56px; padding-top: 22px; border-top: 1px solid #33301F; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.08em; color: #8A8471">
+          <div style="display: flex; gap: 22px">
+            <a href="https://www.linkedin.com/in/marianasaca/" target="_blank" style="color: #C9C2B0" class="h18">LinkedIn</a>
+            <a href="https://github.com/marianasaca" target="_blank" style="color: #C9C2B0" class="h19">GitHub</a>
+            <a href="mailto:msaca16@gmail.com" style="color: #C9C2B0" class="h20">Email</a>
+          </div>
+          <span>© 2025 Mariana Saca</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
